@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane prefHeight="473.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_basdat.dataController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="636.0">
+         <children>
+            <TabPane prefHeight="400.0" prefWidth="636.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="item_category">
+                     <content>
+                        <TableView prefHeight="361.0" prefWidth="658.0">
+                          <columns>
+                            <TableColumn prefWidth="106.0" text="category_id" />
+                            <TableColumn prefWidth="127.0" text="category_name" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                <Tab text="item">
+                     <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="item_id" />
+                            <TableColumn prefWidth="84.0" text="item_name" />
+                              <TableColumn prefWidth="100.0" text="category_id" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab text="discount">
+                     <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="97.0" text="discount_id" />
+                            <TableColumn prefWidth="157.0" text="discount_start_date" />
+                              <TableColumn minWidth="0.0" prefWidth="159.0" text="discount_end_date" />
+                              <TableColumn prefWidth="132.0" text="discount_price" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab text="radius">
+                     <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="radius_id" />
+                            <TableColumn prefWidth="108.0" text="radius_price" />
+                              <TableColumn prefWidth="98.0" text="distance" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab text="courier">
+                     <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="105.0" text="courier_id" />
+                            <TableColumn prefWidth="119.0" text="courier_name" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab text="payment">
+                     <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="99.0" text="payment_id" />
+                            <TableColumn prefWidth="115.0" text="payment_type" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab text="customer">
+                     <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="105.0" text="customer_id" />
+                            <TableColumn prefWidth="125.0" text="customer_name" />
+                              <TableColumn prefWidth="145.0" text="customer_address" />
+                              <TableColumn prefWidth="139.0" text="phone_number" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab text="order">
+                     <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="order_id" />
+                            <TableColumn prefWidth="100.0" text="service_type" />
+                              <TableColumn prefWidth="110.0" text="pickup_date" />
+                              <TableColumn prefWidth="118.0" text="item_condition" />
+                              <TableColumn prefWidth="102.0" text="total_price" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab text="item_order">
+                     <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="item_id" />
+                            <TableColumn prefWidth="75.0" text="order_id" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+                  <Tab text="delivery">
+                     <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn prefWidth="89.0" text="delivery_id" />
+                            <TableColumn prefWidth="131.0" text="delivery_address" />
+                              <TableColumn prefWidth="143.0" text="down_payment" />
+                              <TableColumn prefWidth="119.0" text="delivery_type" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="417.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button fx:id="btnEdit" layoutX="100.0" layoutY="417.0" mnemonicParsing="false" onAction="#edit" text="Edit" />
+   </children>
+</AnchorPane>
