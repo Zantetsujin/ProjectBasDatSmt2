@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="466.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project_basdat.FormIsiData">
+   <children>
+      <Button fx:id="btnSubmit" layoutX="14.0" layoutY="419.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
+      <Button fx:id="btnView" layoutX="110.0" layoutY="419.0" mnemonicParsing="false" onAction="#view" text="View" />
+      <Label alignment="CENTER_RIGHT" layoutY="80.0" prefHeight="31.0" prefWidth="138.0" text="ID:" />
+      <Label alignment="CENTER" layoutX="239.0" layoutY="22.0" prefHeight="40.0" prefWidth="154.0" text="Form Customer" />
+      <Label alignment="CENTER_RIGHT" layoutY="133.0" prefHeight="31.0" prefWidth="138.0" text="Name:" />
+      <Label alignment="CENTER_RIGHT" layoutY="187.0" prefHeight="31.0" prefWidth="138.0" text="Address:" />
+      <Label alignment="CENTER_RIGHT" layoutY="239.0" prefHeight="31.0" prefWidth="138.0" text="Phone Number:" />
+      <TextField fx:id="txtID" layoutX="206.0" layoutY="80.0" />
+      <TextField fx:id="txtName" layoutX="206.0" layoutY="133.0" />
+      <TextField fx:id="txtAddress" layoutX="206.0" layoutY="187.0" />
+      <TextField fx:id="txtPhoneNumber" layoutX="206.0" layoutY="239.0" />
+      <Label alignment="CENTER_RIGHT" layoutY="302.0" prefHeight="31.0" prefWidth="138.0" text="Item:" />
+      <ChoiceBox fx:id="cBoxItem" layoutX="206.0" layoutY="302.0" prefHeight="31.0" prefWidth="187.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="414.0" layoutY="302.0" prefHeight="31.0" prefWidth="67.0" text="Quantity:" />
+      <TextField fx:id="txtQuantity" layoutX="488.0" layoutY="302.0" prefHeight="31.0" prefWidth="77.0" />
+   </children>
+</AnchorPane>
