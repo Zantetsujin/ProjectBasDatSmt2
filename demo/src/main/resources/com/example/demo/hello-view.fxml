@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="323.0" prefWidth="466.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.14-internal" fx:controller="com.example.demo.Controllers.FormCustomerController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <children>
+         <TableView fx:id="table" onMouseClicked="#getRowTable" prefHeight="200.0" prefWidth="200.0">
+           <columns>
+             <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+             <TableColumn fx:id="colAge" prefWidth="75.0" text="Age" />
+           </columns>
+         </TableView>
+         <TextField fx:id="txtName" layoutX="213.0" layoutY="14.0" />
+         <Spinner fx:id="spinAge" layoutX="213.0" layoutY="59.0" />
+          <Button fx:id="btnAdd" layoutX="213.0" layoutY="100.0" onAction="#onAdd" text="Add " />
+         <Button fx:id="btnUpdate" layoutX="301.0" layoutY="100.0" mnemonicParsing="false" onAction="#onUpdate" text="Update" />
+         <Button fx:id="btnDelete" layoutX="262.0" layoutY="148.0" mnemonicParsing="false" onAction="#onDelete" text="Delete" />
+      </children>
+   </AnchorPane>
+
+    <Label fx:id="welcomeText" />
+</VBox>
