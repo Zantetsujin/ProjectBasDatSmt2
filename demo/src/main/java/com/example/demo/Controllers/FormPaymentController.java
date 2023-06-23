@@ -30,7 +30,7 @@ public class FormPaymentController implements Initializable {
     private Button btnSave;
 
     @FXML
-    private ChoiceBox<?> cBoxType;
+    private TextField txtType;
 
     private Scene scene;
     DatabaseConnection connectNow;
@@ -52,7 +52,7 @@ public class FormPaymentController implements Initializable {
     @FXML
     void save(ActionEvent event) {
         int id = Integer.parseInt(txtID.getText());
-        String paymentType = String.valueOf(cBoxType.getValue());
+        String paymentType = txtType.getText();
 
         String query = String.format("INSERT INTO `payment`(`payment_id`, `payment_type`) VALUES ('%d','%s')", id, paymentType);
 

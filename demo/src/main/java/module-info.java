@@ -9,5 +9,7 @@ module com.example.demo {
     exports com.example.demo;
     exports com.example.demo.Controllers;
     opens com.example.demo.Controllers to javafx.fxml;
+    exports com.example.demo.Beans;
+    opens com.example.demo.Beans to javafx.fxml;
 
 }
