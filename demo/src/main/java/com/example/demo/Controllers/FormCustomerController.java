@@ -46,6 +46,14 @@ public class FormCustomerController implements Initializable {
         connectionSQL = connectNow.getConnection();
     }
 
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -67,14 +75,14 @@ public class FormCustomerController implements Initializable {
             System.out.println(e);
         }
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/FormOrder.fxml"));
-            scene.setRoot((Parent) loader.load());
-            FormOrderController FormOrderController = loader.getController();
-            FormOrderController.setScene(scene);
-        } catch (IOException e){
-            System.out.println(e);
-        }
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/data.fxml"));
+//            scene.setRoot((Parent) loader.load());
+//            FormOrderController FormOrderController = loader.getController();
+//            FormOrderController.setScene(scene);
+//        } catch (IOException e){
+//            System.out.println(e);
+//        }
     }
 
     @FXML
@@ -82,11 +90,5 @@ public class FormCustomerController implements Initializable {
 
     }
 
-    public Scene getScene() {
-        return scene;
-    }
 
-    public void setScene(Scene scene) {
-        this.scene = scene;
-    }
 }

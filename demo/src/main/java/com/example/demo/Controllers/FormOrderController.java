@@ -54,6 +54,14 @@ public class FormOrderController implements Initializable {
         connectionSQL = connectNow.getConnection();
     }
 
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cBoxServiceType.getItems().removeAll(cBoxServiceType.getItems());
@@ -92,11 +100,5 @@ public class FormOrderController implements Initializable {
 
     }
 
-    public Scene getScene() {
-        return scene;
-    }
 
-    public void setScene(Scene scene) {
-        this.scene = scene;
-    }
 }

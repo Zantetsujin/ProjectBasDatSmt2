@@ -1,7 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.Controllers.FormCustomerController;
-import com.example.demo.Controllers.FormOrderController;
+import com.example.demo.Controllers.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,9 +11,9 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("FormIsiData.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("item.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        fxmlLoader.<FormCustomerController>getController().setScene(scene);
+        fxmlLoader.<FormItemController>getController().setScene(scene);
         stage.setTitle("LAUNDRY");
         stage.setScene(scene);
         stage.show();
