@@ -109,7 +109,14 @@ public class FormOrderController implements Initializable {
 
     @FXML
     void onView() {
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/data.fxml"));
+            scene.setRoot((Parent) loader.load());
+            DataController dataController = loader.getController();
+            dataController.setScene(scene);
+        } catch (IOException e){
+            System.out.println(e);
+        }
     }
 
 

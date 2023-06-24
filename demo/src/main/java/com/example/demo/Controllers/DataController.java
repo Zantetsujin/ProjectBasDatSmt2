@@ -7,13 +7,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -377,6 +380,122 @@ public class DataController implements Initializable {
         }
 
         tablePayment.setItems(paymentList);
+    }
+
+    @FXML
+    void onAddCustomer(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/FormIsiData.fxml"));
+            scene.setRoot((Parent) loader.load());
+            FormCustomerController formCustomerController = loader.getController();
+            formCustomerController.setScene(scene);
+        } catch (IOException e){
+            System.out.println(e);
+        }
+    }
+    @FXML
+    void onEditCustomer(){
+
+    }
+    @FXML
+    void onDeleteCustomer(){
+
+    }
+    @FXML
+    void onAddCategory(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/item_category.fxml"));
+            scene.setRoot((Parent) loader.load());
+            FormCategoryController formCategoryController = loader.getController();
+            formCategoryController.setScene(scene);
+        } catch (IOException e){
+            System.out.println(e);
+        }
+    }
+    @FXML
+    void onEditCategory(){
+
+    }
+    @FXML
+    void onDeleteCategory(){
+
+    }
+    @FXML
+    void onAddDiscount(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/discount.fxml"));
+            scene.setRoot((Parent) loader.load());
+            FormDiscountController formDiscountController = loader.getController();
+            formDiscountController.setScene(scene);
+        } catch (IOException e){
+            System.out.println(e);
+        }
+    }
+    @FXML
+    void onEditDiscount(){
+
+    }
+    @FXML
+    void
+    onDeleteDiscount(){
+
+    }
+    @FXML
+    void onAddItem(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/item.fxml"));
+            scene.setRoot((Parent) loader.load());
+            FormItemController formItemController = loader.getController();
+            formItemController.setScene(scene);
+        } catch (IOException e){
+            System.out.println(e);
+        }
+    }
+    @FXML
+    void onEditItem(){
+
+    }
+    @FXML
+    void onDeleteItem(){
+
+    }
+    @FXML
+    void onAddPayment(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/payment.fxml"));
+            scene.setRoot((Parent) loader.load());
+            FormPaymentController formPaymentController = loader.getController();
+            formPaymentController.setScene(scene);
+        } catch (IOException e){
+            System.out.println(e);
+        }
+    }
+    @FXML
+    void onEditPayment(){
+
+    }
+    @FXML
+    void onDeletePayment(){
+
+    }
+    @FXML
+    void onAddOrder(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/FormOrder.fxml"));
+            scene.setRoot((Parent) loader.load());
+            FormOrderController formOrderController = loader.getController();
+            formOrderController.setScene(scene);
+        } catch (IOException e){
+            System.out.println(e);
+        }
+    }
+    @FXML
+    void onEditOrder(){
+
+    }
+    @FXML
+    void onDeleteOrder(){
+
     }
 }
 

@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="473.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.DataController">
+<AnchorPane prefHeight="587.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.DataController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="774.0">
          <children>
@@ -91,8 +91,23 @@
             </TabPane>
          </children>
       </AnchorPane>
-      <Button fx:id="btnEdit" layoutX="100.0" layoutY="417.0" mnemonicParsing="false" onAction="#edit" text="Edit" />
-      <Button fx:id="btnAdd" layoutX="26.0" layoutY="417.0" mnemonicParsing="false" text="Add" />
-      <Button fx:id="btnDelete" layoutX="170.0" layoutY="417.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="btnAddCustomer" layoutX="14.0" layoutY="400.0" mnemonicParsing="false" onAction="#onAddCustomer" text="Add Customer" />
+      <Button fx:id="btnEditCustomer" layoutX="124.0" layoutY="400.0" mnemonicParsing="false" onAction="#onEditCustomer" text="Edit Customer" />
+      <Button fx:id="btnDeleteCustomer" layoutX="246.0" layoutY="400.0" mnemonicParsing="false" onAction="#onDeleteCustomer" text="Delete Customer" />
+      <Button fx:id="btnAddOrder" layoutX="14.0" layoutY="433.0" mnemonicParsing="false" onAction="#onAddOrder" text="Add Order" />
+      <Button fx:id="btnEditOrder" layoutX="124.0" layoutY="433.0" mnemonicParsing="false" onAction="#onEditOrder" text="Edit Order" />
+      <Button fx:id="btnDeleteOrder" layoutX="246.0" layoutY="433.0" mnemonicParsing="false" onAction="#onDeleteOrder" text="Delete Order" />
+      <Button fx:id="btnAddCategory" layoutX="14.0" layoutY="466.0" mnemonicParsing="false" onAction="#onAddCategory" text="Add Category" />
+      <Button fx:id="btnEditCategory" layoutX="124.0" layoutY="466.0" mnemonicParsing="false" onAction="#onEditCategory" text="Edit Category" />
+      <Button fx:id="btnDeleteCategory" layoutX="246.0" layoutY="466.0" mnemonicParsing="false" onAction="#onDeleteCategory" text="Delete Category" />
+      <Button fx:id="btnAddDiscount" layoutX="377.0" layoutY="433.0" mnemonicParsing="false" onAction="#onAddDiscount" text="Add Discount" />
+      <Button fx:id="btnEditDiscount" layoutX="480.0" layoutY="433.0" mnemonicParsing="false" onAction="#onEditDiscount" text="Edit Discount" />
+      <Button fx:id="btnDeleteDiscount" layoutX="588.0" layoutY="433.0" mnemonicParsing="false" onAction="#onDeleteDiscount" text="Delete Discount" />
+      <Button fx:id="BtnAddItem" layoutX="377.0" layoutY="400.0" mnemonicParsing="false" onAction="#onAddItem" text="Add Item" />
+      <Button fx:id="btnEditItem" layoutX="480.0" layoutY="400.0" mnemonicParsing="false" onAction="#onEditItem" text="Edit Item" />
+      <Button fx:id="btnDeleteItem" layoutX="588.0" layoutY="400.0" mnemonicParsing="false" onAction="#onDeleteItem" text="Delete Item" />
+      <Button fx:id="btnDeletePayment" layoutX="588.0" layoutY="466.0" mnemonicParsing="false" onAction="#onDeletePayment" text="Delete Payment" />
+      <Button fx:id="btnEditPayment" layoutX="480.0" layoutY="466.0" mnemonicParsing="false" onAction="#onEditPayment" text="Edit Payment" />
+      <Button fx:id="btnAddPayment" layoutX="377.0" layoutY="466.0" mnemonicParsing="false" onAction="#onAddPayment" text="Add Payment" />
    </children>
 </AnchorPane>

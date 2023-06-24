@@ -75,7 +75,14 @@ public class FormPaymentController implements Initializable {
 
     @FXML
     void back(ActionEvent event) {
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/data.fxml"));
+            scene.setRoot((Parent) loader.load());
+            DataController dataController = loader.getController();
+            dataController.setScene(scene);
+        } catch (IOException e){
+            System.out.println(e);
+        }
     }
 
     @Override

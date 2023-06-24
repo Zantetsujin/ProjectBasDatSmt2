@@ -92,8 +92,8 @@ public class FormDiscountController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/data.fxml"));
             scene.setRoot((Parent) loader.load());
-            FormOrderController FormOrderController = loader.getController();
-            FormOrderController.setScene(scene);
+            DataController dataController = loader.getController();
+            dataController.setScene(scene);
         } catch (IOException e){
             System.out.println(e);
         }
