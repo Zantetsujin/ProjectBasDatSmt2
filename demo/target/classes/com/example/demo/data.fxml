@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="473.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.DataController">
+<AnchorPane prefHeight="473.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Controllers.DataController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="774.0">
          <children>
@@ -72,16 +72,17 @@
                   </Tab>
                   <Tab text="order">
                      <content>
-                        <TableView fx:id="tableOrder" prefHeight="361.0" prefWidth="730.0">
+                        <TableView fx:id="tableOrder" prefHeight="371.0" prefWidth="851.0">
                           <columns>
-                            <TableColumn fx:id="colOrder_orderId" prefWidth="75.0" text="order_id" />
-                            <TableColumn fx:id="colOrder_serviceType" prefWidth="100.0" text="service_type" />
-                              <TableColumn fx:id="colOrder_pickupDate" prefWidth="110.0" text="pickup_date" />
-                              <TableColumn fx:id="colOrder_itemCondition" prefWidth="113.0" text="item_condition" />
-                              <TableColumn fx:id="colOrder_totalPrice" prefWidth="92.0" text="total_price" />
-                              <TableColumn fx:id="colOrder_customerId" prefWidth="94.0" text="customer_id" />
-                              <TableColumn fx:id="colOrder_paymentId" prefWidth="101.0" text="payment_id" />
-                              <TableColumn fx:id="colOrder_itemId" prefWidth="75.0" text="item_id" />
+                            <TableColumn fx:id="colOrder_orderId" prefWidth="56.800018310546875" text="order_id" />
+                            <TableColumn fx:id="colOrder_serviceType" prefWidth="77.59994506835938" text="service_type" />
+                              <TableColumn fx:id="colOrder_pickupDate" prefWidth="79.20001220703125" text="pickup_date" />
+                              <TableColumn fx:id="colOrder_itemCondition" prefWidth="94.39996337890625" text="item_condition" />
+                              <TableColumn fx:id="colOrder_totalPrice" prefWidth="70.4000244140625" text="total_price" />
+                              <TableColumn fx:id="colOrder_customerId" prefWidth="77.60003662109375" text="customer_id" />
+                              <TableColumn fx:id="colOrder_paymentId" prefWidth="73.60003662109375" text="payment_id" />
+                              <TableColumn fx:id="colOrder_itemId" prefWidth="97.5999755859375" text="item_id" />
+                              <TableColumn fx:id="colOrder_deliveryType" prefWidth="144.0" text="delivery_type" />
                           </columns>
                         </TableView>
                      </content>

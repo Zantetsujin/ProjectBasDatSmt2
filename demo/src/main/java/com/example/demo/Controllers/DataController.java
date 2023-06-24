@@ -24,13 +24,58 @@ import java.util.ResourceBundle;
 public class DataController implements Initializable {
 
     @FXML
-    private Button btnAdd;
+    private Button BtnAddItem;
 
     @FXML
-    private Button btnDelete;
+    private Button btnAddCategory;
 
     @FXML
-    private Button btnEdit;
+    private Button btnAddCustomer;
+
+    @FXML
+    private Button btnAddDiscount;
+
+    @FXML
+    private Button btnAddOrder;
+
+    @FXML
+    private Button btnAddPayment;
+
+    @FXML
+    private Button btnDeleteCategory;
+
+    @FXML
+    private Button btnDeleteCustomer;
+
+    @FXML
+    private Button btnDeleteDiscount;
+
+    @FXML
+    private Button btnDeleteItem;
+
+    @FXML
+    private Button btnDeleteOrder;
+
+    @FXML
+    private Button btnDeletePayment;
+
+    @FXML
+    private Button btnEditCategory;
+
+    @FXML
+    private Button btnEditCustomer;
+
+    @FXML
+    private Button btnEditDiscount;
+
+    @FXML
+    private Button btnEditItem;
+
+    @FXML
+    private Button btnEditOrder;
+
+    @FXML
+    private Button btnEditPayment;
 
     @FXML
     private TableColumn<Customer, String> colCustomer_customerAddress;
@@ -102,6 +147,9 @@ public class DataController implements Initializable {
     private TableColumn<Order, Integer> colOrder_totalPrice;
 
     @FXML
+    private TableColumn<Order, String> colOrder_deliveryType;
+
+    @FXML
     private TableColumn<Payment, Integer> colPayment_paymentId;
 
     @FXML
@@ -145,6 +193,11 @@ public class DataController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         refreshTableCustomer();
+        refreshTableDiscount();
+        refreshTableItem();
+        refreshTableItemCategory();
+        refreshTableOrder();
+        refreshTablePayment();
     }
 
     @FXML
@@ -180,5 +233,150 @@ public class DataController implements Initializable {
         tableCustomer.setItems(customerList);
     }
 
+    void refreshTableDiscount(){
+        colDiscount_discountId.setCellValueFactory(new PropertyValueFactory<Discount, Integer>("id"));
+        colDiscount_discountStartDate.setCellValueFactory(new PropertyValueFactory<Discount, String>("startDate"));
+        colDiscount_discountEndDate.setCellValueFactory(new PropertyValueFactory<Discount, String>("endDate"));
+        colDiscount_discountPrice.setCellValueFactory(new PropertyValueFactory<Discount, String>("price"));
+
+        String query = "SELECT * FROM discount";
+
+        ObservableList<Discount> discountList = FXCollections.observableArrayList();
+
+        try {
+            Statement statement =  connectNow.databaseLink.createStatement();
+            ResultSet queryOutput = statement.executeQuery(query);
+
+            while (queryOutput.next()){
+                int id = Integer.parseInt(queryOutput.getString("discount_id"));
+                String startDate = queryOutput.getString("discount_start_date");
+                String endDate = queryOutput.getString("discount_end_date");
+                String price = queryOutput.getString("discount_price");
+                discountList.add(new Discount(id, startDate, endDate, price));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        tableDiscount.setItems(discountList);
+    }
+
+    void refreshTableItem(){
+        colItem_itemId.setCellValueFactory(new PropertyValueFactory<Item, Integer>("id"));
+        colItem_itemName.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
+        colItem_itemPrice.setCellValueFactory(new PropertyValueFactory<Item, Integer>("price"));
+        colItem_categoryId.setCellValueFactory(new PropertyValueFactory<Item, Integer>("category_id"));
+
+        String query = "SELECT * FROM item";
+
+        ObservableList<Item> itemList = FXCollections.observableArrayList();
+
+        try {
+            Statement statement =  connectNow.databaseLink.createStatement();
+            ResultSet queryOutput = statement.executeQuery(query);
+
+            while (queryOutput.next()){
+                int id = Integer.parseInt(queryOutput.getString("item_id"));
+                String name = queryOutput.getString("item_name");
+                int price = Integer.parseInt(queryOutput.getString("item_price"));
+                int category_id = Integer.parseInt(queryOutput.getString("category_id"));
+                itemList.add(new Item(id, name, price, category_id));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        tableItem.setItems(itemList);
+    }
+
+    void refreshTableItemCategory(){
+        colItemCategory_categoryId.setCellValueFactory(new PropertyValueFactory<ItemCategory, Integer>("id"));
+        colItemCategory_categoryName.setCellValueFactory(new PropertyValueFactory<ItemCategory, String>("name"));
+        colItemCategory_discountId.setCellValueFactory(new  PropertyValueFactory<ItemCategory, Integer>("discountId"));
+
+        String query = "SELECT * FROM item_category";
+
+        ObservableList<ItemCategory> item_CategoryList = FXCollections.observableArrayList();
+
+        try {
+            Statement statement =  connectNow.databaseLink.createStatement();
+            ResultSet queryOutput = statement.executeQuery(query);
+
+            while (queryOutput.next()){
+                int id = Integer.parseInt(queryOutput.getString("category_id"));
+                String name = queryOutput.getString("category_name");
+                int discount_id = Integer.parseInt(queryOutput.getString("discount_id"));
+                item_CategoryList.add(new ItemCategory(id, name, discount_id));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        tableItemCategory.setItems(item_CategoryList);
+    }
+
+    void refreshTableOrder(){
+        colOrder_orderId.setCellValueFactory(new PropertyValueFactory<Order, Integer>("id"));
+        colOrder_serviceType.setCellValueFactory(new PropertyValueFactory<Order, String>("serviceType"));
+        colOrder_pickupDate.setCellValueFactory(new PropertyValueFactory<Order, String>("pickupDate"));
+        colOrder_itemCondition.setCellValueFactory(new PropertyValueFactory<Order, String>("itemCondition"));
+        colOrder_totalPrice.setCellValueFactory(new PropertyValueFactory<Order, Integer>("totalPrice"));
+        colOrder_customerId.setCellValueFactory(new PropertyValueFactory<Order, Integer>("customerId"));
+        colOrder_paymentId.setCellValueFactory(new PropertyValueFactory<Order, Integer>("paymentId"));
+        colOrder_itemId.setCellValueFactory(new PropertyValueFactory<Order, Integer>("itemId"));
+        colOrder_deliveryType.setCellValueFactory(new PropertyValueFactory<Order, String>("deliveryType"));
+
+        String query = "SELECT * FROM orders";
+
+        ObservableList<Order> orderList = FXCollections.observableArrayList();
+
+        try {
+            Statement statement =  connectNow.databaseLink.createStatement();
+            ResultSet queryOutput = statement.executeQuery(query);
+
+            while (queryOutput.next()){
+                int id = Integer.parseInt(queryOutput.getString("order_id"));
+                String serviceType = queryOutput.getString("service_type");
+                String pickUpDate = queryOutput.getString("pickup_date");
+                String itemCondition = queryOutput.getString("item_condition");
+                int totalPrice = 0;
+                int customerId = Integer.parseInt(queryOutput.getString("customer_id"));
+                int paymentId = Integer.parseInt(queryOutput.getString("payment_id"));
+                int itemId = Integer.parseInt(queryOutput.getString("item_id"));
+
+                String deliveryType = queryOutput.getString("delivery_type");
+
+                orderList.add(new Order(id, serviceType, pickUpDate, itemCondition, totalPrice, customerId, paymentId, itemId, deliveryType));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        tableOrder.setItems(orderList);
+    }
+
+    void refreshTablePayment(){
+        colPayment_paymentId.setCellValueFactory(new PropertyValueFactory<Payment, Integer>("id"));
+        colPayment_paymentType.setCellValueFactory(new PropertyValueFactory<Payment, String>("type"));
+
+        String query = "SELECT * FROM payment";
+
+        ObservableList<Payment> paymentList = FXCollections.observableArrayList();
+
+        try {
+            Statement statement =  connectNow.databaseLink.createStatement();
+            ResultSet queryOutput = statement.executeQuery(query);
+
+            while (queryOutput.next()){
+                int id = Integer.parseInt(queryOutput.getString("payment_id"));
+                String name = queryOutput.getString("payment_type");
+                paymentList.add(new Payment(id, name));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        tablePayment.setItems(paymentList);
+    }
 }
 

@@ -63,14 +63,14 @@ public class FormPaymentController implements Initializable {
             System.out.println(e);
         }
 
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/data.fxml"));
-//            scene.setRoot((Parent) loader.load());
-//            FormOrderController FormOrderController = loader.getController();
-//            FormOrderController.setScene(scene);
-//        } catch (IOException e){
-//            System.out.println(e);
-//        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/data.fxml"));
+            scene.setRoot((Parent) loader.load());
+            DataController dataController = loader.getController();
+            dataController.setScene(scene);
+        } catch (IOException e){
+            System.out.println(e);
+        }
     }
 
     @FXML
