@@ -1,10 +1,10 @@
 package com.example.demo.Beans;
 
 public class Customer {
-    int id;
-    String name;
-    String address;
-    String phoneNumber;
+    private int id;
+    private String name;
+    private String address;
+    private String phoneNumber;
 
     public Customer(){}
 

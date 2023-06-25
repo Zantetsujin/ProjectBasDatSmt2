@@ -1,7 +1,7 @@
 package com.example.demo.Controllers;
 
+import com.example.demo.Beans.Customer;
 import com.example.demo.DatabaseConnection;
-import com.example.demo.Person;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,6 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.Normalizer;
 import java.util.ResourceBundle;
 
 public class FormCustomerController implements Initializable {
@@ -38,6 +37,8 @@ public class FormCustomerController implements Initializable {
     private TextField txtPhoneNumber;
 
     private Scene scene;
+    private boolean isEdit = false;
+    private Customer customerTemp;
     DatabaseConnection connectNow;
     Connection connectionSQL;
 
@@ -54,25 +55,66 @@ public class FormCustomerController implements Initializable {
         this.scene = scene;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    public boolean isEdit() {
+        return isEdit;
     }
 
+    public void setEdit(boolean edit) {
+        isEdit = edit;
+    }
+
+    public Customer getCustomerTemp() {
+        return customerTemp;
+    }
+
+    public void setCustomerTemp(Customer customerTemp) {
+        this.customerTemp = customerTemp;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (isEdit) {
+            txtID.setText(String.valueOf(customerTemp.getId()));
+            txtName.setText(customerTemp.getName());
+            txtAddress.setText(customerTemp.getAddress());
+            txtPhoneNumber.setText(customerTemp.getPhoneNumber());
+        } else {
+            txtID.setText("");
+            txtName.setText("");
+            txtAddress.setText("");
+            txtPhoneNumber.setText("");
+        }
+    }
     @FXML
     void onSubmit(ActionEvent event) {
-        int id = Integer.parseInt(txtID.getText());
-        String name = txtName.getText();
-        String address = txtAddress.getText();
-        String phoneNumber = txtPhoneNumber.getText();
+        if (isEdit){
+            int id = Integer.parseInt(txtID.getText());
+            String name = txtName.getText();
+            String address = txtAddress.getText();
+            String phoneNumber = txtPhoneNumber.getText();
 
-        String query = String.format("INSERT INTO `customer`(`customer_id`, `nama`, `address`, `phone_number`) VALUES ('%d','%s','%s','%s')", id, name, address, phoneNumber);
+            String query = String.format("UPDATE `customer` SET `nama`='%s',`address`='%s', `phone_number`='%s' WHERE customer_id = '%d'", name, address, phoneNumber, id);
 
-        try {
-            Statement statement = connectNow.databaseLink.createStatement();
-            statement.execute(query);
-        } catch (SQLException e) {
-            System.out.println(e);
+            try {
+                Statement statement = connectNow.databaseLink.createStatement();
+                statement.execute(query);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        } else {
+            int id = Integer.parseInt(txtID.getText());
+            String name = txtName.getText();
+            String address = txtAddress.getText();
+            String phoneNumber = txtPhoneNumber.getText();
+
+            String query = String.format("INSERT INTO `customer`(`customer_id`, `nama`, `address`, `phone_number`) VALUES ('%d','%s','%s','%s')", id, name, address, phoneNumber);
+
+            try {
+                Statement statement = connectNow.databaseLink.createStatement();
+                statement.execute(query);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
         }
 
         try {

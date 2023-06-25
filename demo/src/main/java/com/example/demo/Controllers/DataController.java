@@ -394,12 +394,36 @@ public class DataController implements Initializable {
         }
     }
     @FXML
-    void onEditCustomer(){
-
+    void onEditCustomer() {
+        if (tableCustomer.getSelectionModel().getSelectedItem() != null) {
+            Customer customer = tableCustomer.getSelectionModel().getSelectedItem();
+            System.out.println(customer.getAddress());
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/FormIsiData.fxml"));
+                FormCustomerController formCustomerController = loader.getController();
+                scene.setRoot((Parent) loader.load());
+                formCustomerController.setScene(scene);
+                formCustomerController.setEdit(true);
+                formCustomerController.setCustomerTemp(customer);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
     @FXML
     void onDeleteCustomer(){
+        if (tableCustomer.getSelectionModel().getSelectedItem() != null) {
+            Customer customer = tableCustomer.getSelectionModel().getSelectedItem();
+            String query = String.format("DELETE FROM `customer` WHERE customer_id='%d'", customer.getId());
 
+            try {
+                Statement statement = connectNow.databaseLink.createStatement();
+                statement.execute(query);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        refreshTableCustomer();
     }
     @FXML
     void onAddCategory(){
@@ -418,7 +442,18 @@ public class DataController implements Initializable {
     }
     @FXML
     void onDeleteCategory(){
+        if (tableItemCategory.getSelectionModel().getSelectedItem() != null) {
+            ItemCategory itemCategory = tableItemCategory.getSelectionModel().getSelectedItem();
+            String query = String.format("DELETE FROM `item_category` WHERE category_id='%d'", itemCategory.getId());
 
+            try {
+                Statement statement = connectNow.databaseLink.createStatement();
+                statement.execute(query);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        refreshTableItemCategory();
     }
     @FXML
     void onAddDiscount(){
@@ -438,7 +473,18 @@ public class DataController implements Initializable {
     @FXML
     void
     onDeleteDiscount(){
+        if (tableDiscount.getSelectionModel().getSelectedItem() != null) {
+            Discount discount = tableDiscount.getSelectionModel().getSelectedItem();
+            String query = String.format("DELETE FROM `discount` WHERE discount_id='%d'", discount.getId());
 
+            try {
+                Statement statement = connectNow.databaseLink.createStatement();
+                statement.execute(query);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        refreshTableDiscount();
     }
     @FXML
     void onAddItem(){
@@ -457,7 +503,18 @@ public class DataController implements Initializable {
     }
     @FXML
     void onDeleteItem(){
+        if (tableItem.getSelectionModel().getSelectedItem() != null) {
+            Item item = tableItem.getSelectionModel().getSelectedItem();
+            String query = String.format("DELETE FROM `item` WHERE item_id='%d'", item.getId());
 
+            try {
+                Statement statement = connectNow.databaseLink.createStatement();
+                statement.execute(query);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        refreshTableItem();
     }
     @FXML
     void onAddPayment(){
@@ -476,7 +533,18 @@ public class DataController implements Initializable {
     }
     @FXML
     void onDeletePayment(){
+        if (tablePayment.getSelectionModel().getSelectedItem() != null) {
+            Payment payment = tablePayment.getSelectionModel().getSelectedItem();
+            String query = String.format("DELETE FROM `payment` WHERE payment_id='%d'", payment.getId());
 
+            try {
+                Statement statement = connectNow.databaseLink.createStatement();
+                statement.execute(query);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        refreshTablePayment();
     }
     @FXML
     void onAddOrder(){
@@ -495,7 +563,18 @@ public class DataController implements Initializable {
     }
     @FXML
     void onDeleteOrder(){
+        if (tableOrder.getSelectionModel().getSelectedItem() != null) {
+            Order order = tableOrder.getSelectionModel().getSelectedItem();
+            String query = String.format("DELETE FROM `orders` WHERE order_id='%d'", order.getId());
 
+            try {
+                Statement statement = connectNow.databaseLink.createStatement();
+                statement.execute(query);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        refreshTableOrder();
     }
 }
 
